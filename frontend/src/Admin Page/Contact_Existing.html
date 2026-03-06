@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Existing Societies - Society Treasurer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Circles -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <div class="container">
+        <div class="login-card contact-card existing-card">
+            <!-- Navigation -->
+            <div class="navigation-links">
+                <a href="Contact_Options.html" class="back-button">← Back to Options</a>
+                <a href="../Home%20Page/index.html" class="home-link">🏠 Home</a>
+            </div>
+
+            <div class="society-section">
+                <div class="society-label">Connect with Other Societies</div>
+                <div class="society-name" id="societyName">Green Valley Heights</div>
+            </div>
+
+            <p class="subtitle">Get in touch with treasurers from other societies for guidance</p>
+
+            <!-- Existing Societies List -->
+            <div class="societies-list">
+                <div class="society-card">
+                    <div class="society-avatar">🏘️</div>
+                    <div class="society-info">
+                        <h4>Oakwood Estates</h4>
+                        <p class="society-location">📍 Downtown</p>
+                        <p class="society-members">👥 250+ Members</p>
+                        <p class="society-contact">📧 treasurer@oakwood.com</p>
+                    </div>
+                    <button class="contact-society-btn" onclick="contactSociety('Oakwood Estates', 'treasurer@oakwood.com')">
+                        Contact Treasurer
+                    </button>
+                </div>
+
+                <div class="society-card">
+                    <div class="society-avatar">🌳</div>
+                    <div class="society-info">
+                        <h4>Riverside Condos</h4>
+                        <p class="society-location">📍 Riverside</p>
+                        <p class="society-members">👥 180+ Members</p>
+                        <p class="society-contact">📧 finance@riverside.com</p>
+                    </div>
+                    <button class="contact-society-btn" onclick="contactSociety('Riverside Condos', 'finance@riverside.com')">
+                        Contact Treasurer
+                    </button>
+                </div>
+
+                <div class="society-card">
+                    <div class="society-avatar">🏰</div>
+                    <div class="society-info">
+                        <h4>Maple Grove</h4>
+                        <p class="society-location">📍 Northside</p>
+                        <p class="society-members">👥 320+ Members</p>
+                        <p class="society-contact">📧 accounts@maplegrove.com</p>
+                    </div>
+                    <button class="contact-society-btn" onclick="contactSociety('Maple Grove', 'accounts@maplegrove.com')">
+                        Contact Treasurer
+                    </button>
+                </div>
+
+                <div class="society-card">
+                    <div class="society-avatar">🏡</div>
+                    <div class="society-info">
+                        <h4>Sunset Villas</h4>
+                        <p class="society-location">📍 Westend</p>
+                        <p class="society-members">👥 150+ Members</p>
+                        <p class="society-contact">📧 treasurer@sunset.com</p>
+                    </div>
+                    <button class="contact-society-btn" onclick="contactSociety('Sunset Villas', 'treasurer@sunset.com')">
+                        Contact Treasurer
+                    </button>
+                </div>
+
+                <div class="society-card">
+                    <div class="society-avatar">🏢</div>
+                    <div class="society-info">
+                        <h4>City Towers</h4>
+                        <p class="society-location">📍 City Center</p>
+                        <p class="society-members">👥 400+ Members</p>
+                        <p class="society-contact">📧 finance@citytowers.com</p>
+                    </div>
+                    <button class="contact-society-btn" onclick="contactSociety('City Towers', 'finance@citytowers.com')">
+                        Contact Treasurer
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Contact Form -->
+            <div class="quick-contact-form">
+                <h3>Or send a message to all society treasurers</h3>
+                <form id="existingContactForm">
+                    <div class="input-group">
+                        <label for="userName">Your Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="userName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="userEmail">Your Email</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="userEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="societyName">Your Society Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🏘️</span>
+                            <input type="text" id="societyName" placeholder="e.g., Green Valley Heights" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="queryType">Type of Query</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">❓</span>
+                            <select id="queryType" class="select-input">
+                                <option value="treasurer setup">Treasurer Setup Guidance</option>
+                                <option value="accounting">Accounting Practices</option>
+                                <option value="software">Software Recommendations</option>
+                                <option value="other">Other Questions</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="login-btn send-mail-btn" onclick="sendToAllTreasurers()">
+                        <span class="btn-icon">📨</span>
+                        Send Message to All Treasurers
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="successMessage" class="success-message hidden">
+                <div class="success-icon">✅</div>
+                <h3>Message Sent!</h3>
+                <p>Your message has been sent to the society treasurers.<br>They will get back to you soon.</p>
+                <div class="success-actions">
+                    <button class="login-btn" onclick="window.location.href='Contact_Options.html'">Back to Options</button>
+                    <button class="login-btn secondary-btn" onclick="window.location.href='../Home%20Page/index.html'">Go to Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function contactSociety(societyName, email) {
+            const userName = document.getElementById('userName')?.value || prompt('Please enter your name:');
+            if (!userName) return;
+            
+            const userEmail = document.getElementById('userEmail')?.value || prompt('Please enter your email:');
+            if (!userEmail) return;
+            
+            const userSociety = document.getElementById('societyName')?.value || 'Green Valley Heights';
+            
+            const subject = encodeURIComponent(`Treasurer Guidance Request from ${userSociety}`);
+            const body = encodeURIComponent(
+                `Hello Treasurer of ${societyName},\n\n` +
+                `My name is ${userName} from ${userSociety}. I am the treasurer and would like to connect with you for guidance.\n\n` +
+                `My email is: ${userEmail}\n\n` +
+                `I would appreciate any advice on managing society finances and using the treasurer portal.\n\n` +
+                `Looking forward to hearing from you.\n\n` +
+                `Thanks,\n` +
+                `${userName}\n` +
+                `Treasurer, ${userSociety}`
+            );
+            
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            document.querySelector('.quick-contact-form').style.display = 'none';
+            document.getElementById('successMessage').classList.remove('hidden');
+        }
+
+        function sendToAllTreasurers() {
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const userSociety = document.getElementById('societyName').value;
+            const queryType = document.getElementById('queryType').value;
+            
+            if (!name || !email || !userSociety) {
+                alert('Please fill in your name, email, and society name first!');
+                return;
+            }
+
+            // In a real app, this would send to multiple emails
+            // For demo, sending to a collective email
+            const collectiveEmail = 'treasurers-alliance@societies.com';
+            
+            const subject = encodeURIComponent(`Treasurer Guidance Request - ${userSociety}`);
+            const body = encodeURIComponent(
+                `Hello Fellow Treasurers,\n\n` +
+                `My name is ${name}, Treasurer at ${userSociety}. I'm reaching out to seek guidance from experienced treasurers.\n\n` +
+                `Query Type: ${queryType}\n` +
+                `My Email: ${email}\n\n` +
+                `I would appreciate any insights, best practices, or advice you could share regarding society financial management.\n\n` +
+                `Thank you for your time!\n\n` +
+                `Best regards,\n` +
+                `${name}\n` +
+                `Treasurer, ${userSociety}`
+            );
+            
+            window.location.href = `mailto:${collectiveEmail}?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            document.querySelector('.quick-contact-form').style.display = 'none';
+            document.getElementById('successMessage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

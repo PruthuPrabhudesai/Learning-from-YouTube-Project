@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Creator - Society Treasurer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Circles -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <div class="container">
+        <div class="login-card contact-card creator-card">
+            <!-- Navigation -->
+            <div class="navigation-links">
+                <a href="Contact_Options.html" class="back-button">← Back to Options</a>
+                <a href="../Home%20Page/index.html" class="home-link">🏠 Home</a>
+            </div>
+
+            <!-- Creator Profile Section -->
+            <div class="creator-profile">
+                <div class="creator-avatar">
+                    <span class="avatar-emoji">👨‍💼</span>
+                </div>
+                <h2 class="creator-name">Pruthu</h2>
+                <!-- <div class="creator-email">
+                    <span class="email-icon">📧</span>
+                    <span class="email-text">pruthu373@gmail.com</span>
+                </div>
+                <div class="creator-badge">Society Creator & Admin</div>
+            </div> -->
+
+            <div class="society-section">
+                <div class="society-label">Contact Creator of</div>
+                <div class="society-name" id="societyName">Sahaj Treasury</div>
+            </div>
+
+            <p class="subtitle">Send a message directly to the society creator</p>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <form id="contactCreatorForm">
+                    <div class="input-group">
+                        <label for="userName">Your Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input 
+                                type="text" 
+                                id="userName" 
+                                placeholder="Enter your full name" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="userEmail">Your Email</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input 
+                                type="email" 
+                                id="userEmail" 
+                                placeholder="your@email.com" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Preview Message Section -->
+                    <div class="message-preview">
+                        <label>Message Preview:</label>
+                        <div class="preview-box" id="messagePreview">
+                            <p>Hello Pruthu,</p>
+                            <p>My name is <span class="preview-name">[Your Name]</span> from Green Valley Heights. I would like to request treasurer access to the society portal.</p>
+                            <p>My email is: <span class="preview-email">[Your Email]</span></p>
+                            <p>Please grant me access at your earliest convenience.</p>
+                            <p>Thanks,<br><span class="preview-name-end">[Your Name]</span></p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="login-btn send-mail-btn" onclick="sendMail()">
+                        <span class="btn-icon">📨</span>
+                        Send Mail to Pruthu
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="successMessage" class="success-message hidden">
+                <div class="success-icon">✅</div>
+                <h3>Email Sent Successfully!</h3>
+                <p>Your message has been sent to Pruthu (pruthu373@gmail.com).<br>He will get back to you soon.</p>
+                <div class="success-actions">
+                    <button class="login-btn" onclick="window.location.href='Contact_Options.html'">Back to Options</button>
+                    <button class="login-btn secondary-btn" onclick="window.location.href='../Home%20Page/index.html'">Go to Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Update message preview in real-time
+        document.addEventListener('DOMContentLoaded', function() {
+            const nameInput = document.getElementById('userName');
+            const emailInput = document.getElementById('userEmail');
+            
+            function updatePreview() {
+                const name = nameInput.value || '[Your Name]';
+                const email = emailInput.value || '[Your Email]';
+                
+                document.querySelectorAll('.preview-name, .preview-name-end').forEach(el => {
+                    el.textContent = name;
+                });
+                document.querySelector('.preview-email').textContent = email;
+            }
+            
+            nameInput.addEventListener('input', updatePreview);
+            emailInput.addEventListener('input', updatePreview);
+        });
+
+        // Send mail function
+        function sendMail() {
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            
+            if (!name || !email) {
+                alert('Please fill in your name and email first!');
+                return;
+            }
+
+            // Hardcoded message
+            const subject = encodeURIComponent(`Treasurer Access Request - Green Valley Heights`);
+            const body = encodeURIComponent(
+                `Hello Pruthu,\n\n` +
+                `My name is ${name} from Green Valley Heights. I would like to request treasurer access to the society portal.\n\n` +
+                `My email is: ${email}\n\n` +
+                `Please grant me access at your earliest convenience.\n\n` +
+                `Thanks,\n` +
+                `${name}`
+            );
+
+            // Create mailto link
+            const mailtoLink = `mailto:pruthu373@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            document.querySelector('.contact-form-container').style.display = 'none';
+            document.getElementById('successMessage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

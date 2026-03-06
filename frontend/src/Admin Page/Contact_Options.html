@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Options - Society Treasurer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Circles -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <div class="container">
+        <div class="login-card contact-card">
+            <!-- Back Button - Fixed path to Home Page -->
+            <a href="../Home%20Page/index.html" class="back-button">← Back to Login</a>
+
+            <!-- Society Name (Dynamic) -->
+            <div class="society-section">
+                <div class="society-label">Get Access to</div>
+                <div class="society-name" id="societyName">Sahaj Treasury</div>
+            </div>
+
+            <h2>Choose Contact Option</h2>
+            <p class="subtitle">How would you like to request access?</p>
+
+            <div class="contact-options-container">
+                <!-- Option 1: Contact Creator - Updated to link to Contact_Creator.html -->
+                <div class="contact-option-card" onclick="window.location.href='Contact_Creator.html'">
+                    <div class="option-icon">👤</div>
+                    <h3>Contact Creator</h3>
+                    <p class="option-description">Reach out to the project creator to discuss services</p>
+                    <div class="option-features">
+                        <span class="feature-badge">🏗️ New Society</span>
+                        <span class="feature-badge">👑 Admin Rights</span>
+                    </div>
+                    <button class="option-btn creator-btn" onclick="window.location.href='Contact_Creator.html'">
+                        Contact Creator
+                    </button>
+                </div>
+
+                <!-- Option 2: Contact Existing - Updated to link to Contact_Existing.html -->
+                <div class="contact-option-card" onclick="window.location.href='Contact_Existing.html'">
+                    <div class="option-icon">👥</div>
+                    <h3>Contact Existing</h3>
+                    <p class="option-description">Get in touch with current treasurer or committee members</p>
+                    <div class="option-features">
+                        <span class="feature-badge">📋 Existing Member</span>
+                        <span class="feature-badge">🔄 Transfer Access</span>
+                    </div>
+                    <button class="option-btn existing-btn" onclick="window.location.href='Contact_Existing.html'">
+                        Contact Existing
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contact Form (Hidden by default) - Removed since we're using separate pages -->
+            <!-- Success Message (Hidden by default) - Removed since we're using separate pages -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Simplified script for Contact Options page
+        function updateSocietyName(newName) {
+            const societyElement = document.getElementById('societyName');
+            if (societyElement) {
+                societyElement.style.opacity = '0.5';
+                societyElement.style.transition = 'opacity 0.3s ease';
+                
+                setTimeout(() => {
+                    societyElement.textContent = newName;
+                    societyElement.style.opacity = '1';
+                }, 300);
+            }
+        }
+
+        // Add hover animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.contact-option-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-8px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society Treasurer Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Circles -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <div class="container">
+        <div class="login-card">
+            <!-- Dynamic Society Name Section -->
+            <div class="society-section">
+                <div class="society-label">Welcome to</div>
+                <div class="society-name" id="societyName">Sahaj Treasury</div>
+                <div class="treasurer-badge">🏦 Treasurer Portal</div>
+            </div>
+
+            <h2>Sign In</h2>
+            <p class="subtitle">Access your society's financial dashboard</p>
+
+            <form>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="treasurer@society.com"
+                        >
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="Enter your password"
+                        >
+                        <span class="password-toggle" onclick="togglePassword()">👁️</span>
+                    </div>
+                </div>
+
+                <div class="remember-forgot">
+                    <label class="remember">
+                        <input type="checkbox" checked>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+
+                <button type="button" class="login-btn">Sign In to Dashboard</button>
+
+                <div class="signup-link">
+                    Don't have an account?
+                    <a href="../Admin%20Page/Contact_Options.html" class="contact-admin-link">Contact Admin</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
